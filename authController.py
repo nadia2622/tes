@@ -10,3 +10,9 @@ class AuthController:
 
     def logout(self):
         return "Logout successful"
+    
+    def forgot_password(self, email):
+        if self.auth_service.send_reset_link(email):
+            return "Password reset link sent"
+        else:
+            return "Email not found"
